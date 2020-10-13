@@ -1,14 +1,12 @@
 pipeline {
-    agent { label 'master' }
+    agent { docker { image 'python:alpine' } }
     stages {
-        stage('build') {
+        stage('run') {
             steps {
                 echo "Clarusway_Way to Reinvent Yourself"
                 sh 'echo using shell within Jenkinsfile'
-                echo 'not using shell in the Jenkinsfile'
- 	
-		echo " 2. time , Clarusway_Way to Reinvent Yourself"	
-		 echo "3. time , Waaaw, Clarusway_Way to Reinvent Yourself"
+                 sh 'python3 --version'
+                sh 'python3 pipeline.py'
             }
         }
     }
